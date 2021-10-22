@@ -1,4 +1,4 @@
-import Controller from 'jigsawlutioner-controller/Controller.js';
+import Controller from 'jigsawlutioner-controller';
 
 const controller = new Controller(3000);
 
