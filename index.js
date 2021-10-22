@@ -3,8 +3,8 @@ import Controller from 'jigsawlutioner-controller';
 const controller = new Controller(3000);
 
 controller.createEndpoint('reset', async (parameters, resolve) => {
-    const motor = await controller.getMotor(parameters.motor);
-    const sensor = await controller.getSensor(parameters.sensor);
+    const motor = await controller.getMotor(parameters, 'motor');
+    const sensor = await controller.getSensor(parameters, 'sensor');
 
     await motor.setPower(-50);
 
@@ -27,7 +27,7 @@ controller.createEndpoint('move-to-next-plate', async (parameters, resolve) => {
 
     const movement= -(partsPerPlate / partsPerRotation * 360);
 
-    const motor = await controller.getMotor(parameters.motor);
+    const motor = await controller.getMotor(parameters, 'motor');
 
     await motor.setPosition(movement, 50);
     await motor.setPower(0);
